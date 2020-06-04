@@ -29,8 +29,8 @@ public class JumpGameProblem {
     }
 
     public static void main(String args[]){
-        int[] array = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+        int[] array = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9, 10, 19, 20, 1};
         int minimumJumps = miniumJumps(array);
-        System.out.println("Minimum Jumps Required to reach the end of the array -"+minimumJumps);
+        System.out.println("Minimum Jumps Required to reach the end of the array - "+minimumJumps);
     }
 }
