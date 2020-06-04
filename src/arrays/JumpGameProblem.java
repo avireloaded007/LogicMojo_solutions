@@ -1,35 +1,35 @@
 package arrays;
 
 public class JumpGameProblem {
-    public static int miniumJumps(int array[]){
-        if(array.length < 1){
+    public static int miniumJumps(int nums[]){
+        if(nums.length <= 1){
             return 0;
         }
-
-        int a = array[0], jumps = 0;
-        int max = 0;
-        for(int i = 0; i < array.length; i++){
-            if(i == array.length - 1){
+        int a = nums[0], jumps = 1;
+        int b = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            if(i == nums.length - 1){
                 return jumps;
             }
-            if(array[i] == 0){
-                return -1;
-            }
+
+            b = Math.max(b, i + nums[i]);
 
             a--;
-            max = Math.max(max, array[i]);
             if(a == 0){
-                a = max;
                 jumps++;
-            }
+                if(i >= b){
+                    return -1;
+                }
 
+                a = b - i;
+            }
         }
 
         return jumps;
     }
 
     public static void main(String args[]){
-        int[] array = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9, 10, 19, 20, 1};
+        int[] array = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
         int minimumJumps = miniumJumps(array);
         System.out.println("Minimum Jumps Required to reach the end of the array - "+minimumJumps);
     }
